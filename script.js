@@ -1,20 +1,19 @@
 const quizQuestions = [
     {
         question: "What is the heart rhythm shown in the image?",
-        image: "ECGImages/AF1", // Make sure the image exists in the 'images' folder
+        image: "images/ecg-normal-sinus-rhythm.png", // Ensure this image exists
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Tachycardia", "Bradycardia"],
-        correctAnswer: "Atrial Fibrillation"
+        correctAnswer: "Normal Sinus Rhythm"
     },
     {
         question: "What is the heart rhythm shown in this ECG?",
-        image: "ECGImages/VF1",
+        image: "images/ecg-atrial-fibrillation.png", // Ensure this image exists
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Fibrillation", "Asystole"],
-        correctAnswer: "Ventricular Fibrillation"
+        correctAnswer: "Atrial Fibrillation"
     }
 ];
 
 let currentQuestionIndex = 0;
-
 const questionElement = document.getElementById("question");
 const imageElement = document.getElementById("ecg-image");
 const answersList = document.getElementById("answers");
@@ -30,6 +29,7 @@ function loadQuestion() {
     // Clear previous answers
     answersList.innerHTML = '';
 
+    // Populate answer options
     currentQuestion.options.forEach(option => {
         const li = document.createElement("li");
         li.textContent = option;
@@ -89,4 +89,4 @@ nextButton.onclick = () => {
 };
 
 // Load the first question on page load
-loadQuestion();
+window.onload = loadQuestion;
