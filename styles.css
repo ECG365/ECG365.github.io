@@ -1,0 +1,53 @@
+/* Navigation Bar Styles */
+nav {
+    background-color: #333; /* Dark background */
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure menu stays above all content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #4CAF50; /* Highlight on hover */
+}
+
+/* Adjust page sections to avoid overlap with the fixed menu */
+#home, #quiz, #resources, #contact {
+    padding: 80px 20px; /* Add padding to avoid menu overlap */
+    margin-top: 40px;
+}
+
+/* Responsive Menu for Small Screens */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+}
