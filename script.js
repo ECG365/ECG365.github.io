@@ -1,15 +1,15 @@
 const quizQuestions = [
     {
         question: "What is the heart rhythm shown in the image?",
-        image: "assets/images/ecg-normal-sinus-rhythm.png", // Update with actual path
+        image: "assets/images/AF1", // Update with actual path
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Tachycardia", "Bradycardia"],
-        correctAnswer: "Normal Sinus Rhythm"
+        correctAnswer: "Atrial Fibrillation"
     },
     {
         question: "What is the heart rhythm shown in this ECG?",
-        image: "assets/images/ecg-atrial-fibrillation.png", // Update with actual path
+        image: "assets/images/VF1", // Update with actual path
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Fibrillation", "Asystole"],
-        correctAnswer: "Atrial Fibrillation"
+        correctAnswer: "Ventricular Fibrillation"
     }
 ];
 
