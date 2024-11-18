@@ -99,13 +99,13 @@
                 image: "https://via.placeholder.com/500x200",
                 question: "What does this ECG show?",
                 options: ["Normal sinus rhythm", "Atrial fibrillation", "Ventricular tachycardia"],
-                correct: 1
+                correct: 0
             },
             {
                 image: "https://via.placeholder.com/500x200?text=ECG2",
                 question: "What rhythm is shown here?",
                 options: ["Sinus bradycardia", "Atrial flutter", "Ventricular fibrillation"],
-                correct: 2
+                correct: 1
             },
             {
                 image: "https://via.placeholder.com/500x200?text=ECG3",
@@ -114,80 +114,80 @@
                 correct: 2
             }
         ];
-
+        
         let currentQuestion = 0;
-
+        
         // Load the question
         function loadQuestion() {
             const question = questions[currentQuestion];
             document.getElementById("ecg-image").src = question.image;
             document.getElementById("question-text").textContent = question.question;
-
+        
             const form = document.getElementById("quiz-form");
             form.innerHTML = ""; // Clear previous options
-
+        
             question.options.forEach((option, index) => {
                 const radioInput = document.createElement("input");
                 radioInput.type = "radio";
                 radioInput.name = "answer";
                 radioInput.value = index;
                 radioInput.id = "answer-" + index; // Ensure a unique ID for each input
-
+        
                 // Create the label for the radio button and link it to the input
                 const label = document.createElement("label");
                 label.setAttribute("for", radioInput.id); // Link label to the radio input
                 label.innerHTML = option;
-
+        
                 // Append the input and label to the form
                 form.appendChild(radioInput);
                 form.appendChild(label);
                 form.appendChild(document.createElement("br"));
             });
-
+        
             // Add the submit button at the end of the form
             const submitButton = document.createElement("button");
             submitButton.type = "submit";
             submitButton.textContent = "Submit";
             form.appendChild(submitButton);
-
+        
             document.getElementById("feedback").textContent = ""; // Clear feedback
             document.getElementById("next-button").style.display = "none"; // Hide "Next" button
         }
-
+        
         // Handle form submission
         document.getElementById("quiz-form").addEventListener("submit", function(event) {
             event.preventDefault();
             const selected = document.querySelector('input[name="answer"]:checked');
             const feedback = document.getElementById("feedback");
             const options = document.querySelectorAll('input[name="answer"]');
-
+        
             if (selected) {
                 // Get the label and the selected value
                 const selectedLabel = selected.nextElementSibling;
                 const correctAnswer = questions[currentQuestion].correct;
                 const correctOption = options[correctAnswer].nextElementSibling;
-
+        
                 // Mark answers as correct or incorrect
                 options.forEach((option, index) => {
                     const label = option.nextElementSibling;
                     if (index === correctAnswer) {
-                        label.classList.add('correct');
+                        label.classList.add('correct'); // Add green highlight for the correct answer
                     } else {
-                        label.classList.remove('correct');
+                        label.classList.remove('correct'); // Remove green highlight for incorrect answers
                     }
-
+        
                     if (index === parseInt(selected.value)) {
-                        label.classList.add('incorrect');
+                        label.classList.add('incorrect'); // Add red highlight for the incorrect selected answer
                     } else {
-                        label.classList.remove('incorrect');
+                        label.classList.remove('incorrect'); // Remove red highlight for other options
                     }
                 });
-
+        
                 // Provide feedback
                 const isCorrect = parseInt(selected.value) === questions[currentQuestion].correct;
                 feedback.textContent = isCorrect ? "Correct!" : "Incorrect. Try again.";
                 feedback.style.color = isCorrect ? "green" : "red";
-
+        
                 // Show the "Next" button if the answer is correct
                 if (isCorrect) {
                     document.getElementById("next-button").style.display = "inline";
@@ -197,7 +197,7 @@
                 feedback.style.color = "orange";
             }
         });
-
+        
         // Load the next question
         document.getElementById("next-button").addEventListener("click", function() {
             currentQuestion++;
@@ -208,7 +208,7 @@
                 document.getElementById("quiz-container").innerHTML = "<h2>Quiz Complete!</h2>";
             }
         });
-
+        
         // Initialize the quiz
         loadQuestion();
     </script>
