@@ -54,8 +54,8 @@
             const feedback = document.getElementById('feedback');
             const selected = document.querySelector('input[name="answer"]:checked');
             if (selected) {
-                if (selected.value === "normal") {
-                    feedback.textContent = "Correct! This is a normal sinus rhythm.";
+                if (selected.value === "afib") {
+                    feedback.textContent = "Correct! This is atrial fibrillation.";
                     feedback.style.color = "green";
                 } else {
                     feedback.textContent = "Incorrect. Review the ECG carefully.";
