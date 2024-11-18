@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECG Quiz</title>
     <style>
+        /* Base styles for the page */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -29,62 +30,52 @@
         }
         #next-button {
             margin-top: 20px;
+            display: none;
+        }
+
+        /* Hide the default radio buttons */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* Custom box style for the answers */
+        label {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #f0f0f0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        /* Change the box color when selected */
+        input[type="radio"]:checked + label {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        /* Hover effect */
+        label:hover {
+            background-color: #f7f7f7;
+            border-color: #888;
         }
     </style>
-    /* Hide default radio buttons */
-input[type="radio"] {
-    display: none;
-}
-
-/* Custom style for labels (boxes for answers) */
-label {
-    display: inline-block;
-    padding: 15px 30px;
-    margin: 10px;
-    background-color: #f0f0f0;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-/* Highlight the box when selected */
-input[type="radio"]:checked + label {
-    background-color: #4CAF50;
-    color: white;
-    border-color: #4CAF50;
-}
-
-/* Highlight on hover */
-label:hover {
-    background-color: #f7f7f7;
-    border-color: #888;
-}
-
-/* Style for the input (hidden radio) for accessibilty */
-input[type="radio"]:checked + label:before {
-    content: '✔';
-    margin-right: 10px;
-    color: white;
-}
 </head>
 <body>
     <h1>ECG Quiz for Medical Students</h1>
     <div id="quiz-container">
-        <!-- Image -->
         <img id="ecg-image" src="" alt="ECG Image">
-        <!-- Question Text -->
         <p id="question-text"></p>
-        <!-- Quiz Form -->
         <form id="quiz-form"></form>
-        <!-- Feedback Section -->
         <div id="feedback" class="feedback"></div>
-        <!-- Next Button -->
         <button id="next-button" style="display: none;">Next</button>
     </div>
+
     <script>
-        // Questions Array
         const questions = [
             {
                 image: "ECG-Atrial-Fibrillation.jpg",
@@ -108,42 +99,32 @@ input[type="radio"]:checked + label:before {
 
         let currentQuestion = 0;
 
-        // Load a question
-      function loadQuestion() {
-    const question = questions[currentQuestion];
-    document.getElementById("ecg-image").src = question.image;
-    document.getElementById("question-text").textContent = question.question;
+        // Load the question
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById("ecg-image").src = question.image;
+            document.getElementById("question-text").textContent = question.question;
 
-    const form = document.getElementById("quiz-form");
-    form.innerHTML = ""; // Clear previous options
+            const form = document.getElementById("quiz-form");
+            form.innerHTML = ""; // Clear previous options
 
-    question.options.forEach((option, index) => {
-        const radioInput = document.createElement("input");
-        radioInput.type = "radio";
-        radioInput.name = "answer";
-        radioInput.value = index;
+            question.options.forEach((option, index) => {
+                const radioInput = document.createElement("input");
+                radioInput.type = "radio";
+                radioInput.name = "answer";
+                radioInput.value = index;
 
-        // Create the label for the radio button
-        const label = document.createElement("label");
-        label.innerHTML = option;
-        
-        // Append the input and label to the form
-        form.appendChild(radioInput);
-        form.appendChild(label);
-        form.appendChild(document.createElement("br"));
-    });
+                // Create the label for the radio button
+                const label = document.createElement("label");
+                label.innerHTML = option;
+                
+                // Append the input and label to the form
+                form.appendChild(radioInput);
+                form.appendChild(label);
+                form.appendChild(document.createElement("br"));
+            });
 
-    // Add the submit button at the end of the form
-    const submitButton = document.createElement("button");
-    submitButton.type = "submit";
-    submitButton.textContent = "Submit";
-    form.appendChild(submitButton);
-
-    document.getElementById("feedback").textContent = ""; // Clear feedback
-    document.getElementById("next-button").style.display = "none"; // Hide "Next" button
-}
-
-            // Add a submit button at the end of the form
+            // Add the submit button at the end of the form
             const submitButton = document.createElement("button");
             submitButton.type = "submit";
             submitButton.textContent = "Submit";
@@ -179,7 +160,6 @@ input[type="radio"]:checked + label:before {
             if (currentQuestion < questions.length) {
                 loadQuestion(); // Load next question
             } else {
-                // Quiz finished
                 document.getElementById("quiz-container").innerHTML = `
                     <h2>Quiz Complete!</h2>
                     <p>Great job! You've finished the ECG quiz.</p>
