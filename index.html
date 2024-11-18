@@ -109,23 +109,39 @@ input[type="radio"]:checked + label:before {
         let currentQuestion = 0;
 
         // Load a question
-        function loadQuestion() {
-            const question = questions[currentQuestion];
-            document.getElementById("ecg-image").src = question.image;
-            document.getElementById("question-text").textContent = question.question;
+      function loadQuestion() {
+    const question = questions[currentQuestion];
+    document.getElementById("ecg-image").src = question.image;
+    document.getElementById("question-text").textContent = question.question;
 
-            const form = document.getElementById("quiz-form");
-            form.innerHTML = ""; // Clear previous options
+    const form = document.getElementById("quiz-form");
+    form.innerHTML = ""; // Clear previous options
 
-            question.options.forEach((option, index) => {
-                const label = document.createElement("label");
-                label.innerHTML = `
-                    <input type="radio" name="answer" value="${index}">
-                    ${option}
-                `;
-                form.appendChild(label);
-                form.appendChild(document.createElement("br"));
-            });
+    question.options.forEach((option, index) => {
+        const radioInput = document.createElement("input");
+        radioInput.type = "radio";
+        radioInput.name = "answer";
+        radioInput.value = index;
+
+        // Create the label for the radio button
+        const label = document.createElement("label");
+        label.innerHTML = option;
+        
+        // Append the input and label to the form
+        form.appendChild(radioInput);
+        form.appendChild(label);
+        form.appendChild(document.createElement("br"));
+    });
+
+    // Add the submit button at the end of the form
+    const submitButton = document.createElement("button");
+    submitButton.type = "submit";
+    submitButton.textContent = "Submit";
+    form.appendChild(submitButton);
+
+    document.getElementById("feedback").textContent = ""; // Clear feedback
+    document.getElementById("next-button").style.display = "none"; // Hide "Next" button
+}
 
             // Add a submit button at the end of the form
             const submitButton = document.createElement("button");
