@@ -97,3 +97,10 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+#question-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+}
