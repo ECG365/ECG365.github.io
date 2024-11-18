@@ -18,28 +18,21 @@
     </nav>
 
     <!-- Quiz Section -->
-    <main>
-        <header>
-            <h1>ECG Quiz</h1>
-            <p>Test your ECG interpretation skills by answering the questions below.</p>
-        </header>
-
-        <div id="quiz-container">
-            <div id="question-container">
-                <h2 id="question">Loading question...</h2>
-                <ul id="answers" class="answers">
-                    <!-- Answer options will be dynamically loaded here -->
-                </ul>
-                <button id="submit-btn" disabled>Submit Answer</button>
-                <button id="next-btn" style="display: none;">Next Question</button>
+    <div class="quiz-container">
+        <div id="question-container">
+            <h2 id="question">What is the heart rate for the following rhythm?</h2>
+            <div id="question-image">
+                <img src="images/normal-sinus-rhythm.png" alt="ECG Image">
             </div>
-        </div>
-    </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 ECG Quiz. All Rights Reserved.</p>
-    </footer>
+            <ul id="answers">
+                <!-- Answer options will be inserted dynamically here -->
+            </ul>
+
+            <button id="submit-btn" disabled>Submit Answer</button>
+            <button id="next-btn" style="display: none;" onclick="nextQuestion()">Next Question</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
