@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECG Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        #quiz-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>ECG Quiz for Medical Students</h1>
+    <div id="quiz-container">
+        <img src="https://via.placeholder.com/500x200" alt="ECG Image">
+        <p>What does this ECG show?</p>
+        <form id="quiz-form">
+            <label>
+                <input type="radio" name="answer" value="normal"> Normal sinus rhythm
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="afib"> Atrial fibrillation
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="vtach"> Ventricular tachycardia
+            </label><br>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="feedback" class="feedback"></div>
+    </div>
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('feedback');
+            const selected = document.querySelector('input[name="answer"]:checked');
+            if (selected) {
+                if (selected.value === "normal") {
+                    feedback.textContent = "Correct! This is a normal sinus rhythm.";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.textContent = "Incorrect. Review the ECG carefully.";
+                    feedback.style.color = "red";
+                }
+            } else {
+                feedback.textContent = "Please select an answer.";
+                feedback.style.color = "orange";
+            }
+        });
+    </script>
+</body>
+</html>
