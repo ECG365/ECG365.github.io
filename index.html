@@ -31,6 +31,43 @@
             margin-top: 20px;
         }
     </style>
+    /* Hide default radio buttons */
+input[type="radio"] {
+    display: none;
+}
+
+/* Custom style for labels (boxes for answers) */
+label {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Highlight the box when selected */
+input[type="radio"]:checked + label {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+/* Highlight on hover */
+label:hover {
+    background-color: #f7f7f7;
+    border-color: #888;
+}
+
+/* Style for the input (hidden radio) for accessibilty */
+input[type="radio"]:checked + label:before {
+    content: '✔';
+    margin-right: 10px;
+    color: white;
+}
 </head>
 <body>
     <h1>ECG Quiz for Medical Students</h1>
