@@ -90,6 +90,12 @@
                 form.appendChild(document.createElement("br"));
             });
 
+            // Add a submit button at the end of the form
+            const submitButton = document.createElement("button");
+            submitButton.type = "submit";
+            submitButton.textContent = "Submit";
+            form.appendChild(submitButton);
+
             document.getElementById("feedback").textContent = ""; // Clear feedback
             document.getElementById("next-button").style.display = "none"; // Hide "Next" button
         }
