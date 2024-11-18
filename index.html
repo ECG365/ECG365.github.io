@@ -30,6 +30,92 @@
     </style>
 </head>
 <body>
+    <div id="quiz-container">
+    <img id="ecg-image" src="" alt="ECG Image">
+    <p id="question-text"></p>
+    <form id="quiz-form"></form>
+    <div id="feedback" class="feedback"></div>
+    <button id="next-button" style="display: none;">Next</button>
+</div>
+<script>
+    const questions = [
+        {
+            image: "https://via.placeholder.com/500x200",
+            question: "What does this ECG show?",
+            options: ["Normal sinus rhythm", "Atrial fibrillation", "Ventricular tachycardia"],
+            correct: 0
+        },
+        {
+            image: "https://via.placeholder.com/500x200?text=ECG2",
+            question: "What rhythm is shown here?",
+            options: ["Sinus bradycardia", "Atrial flutter", "Ventricular fibrillation"],
+            correct: 1
+        },
+        {
+            image: "https://via.placeholder.com/500x200?text=ECG3",
+            question: "What abnormality is seen on this ECG?",
+            options: ["ST elevation", "QT prolongation", "Bundle branch block"],
+            correct: 2
+        }
+    ];
+
+    let currentQuestion = 0;
+
+    function loadQuestion() {
+        const question = questions[currentQuestion];
+        document.getElementById("ecg-image").src = question.image;
+        document.getElementById("question-text").textContent = question.question;
+
+        const form = document.getElementById("quiz-form");
+        form.innerHTML = "";
+
+        question.options.forEach((option, index) => {
+            const label = document.createElement("label");
+            label.innerHTML = `
+                <input type="radio" name="answer" value="${index}">
+                ${option}
+            `;
+            form.appendChild(label);
+            form.appendChild(document.createElement("br"));
+        });
+
+        document.getElementById("feedback").textContent = "";
+        document.getElementById("next-button").style.display = "none";
+    }
+
+    document.getElementById("quiz-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const selected = document.querySelector('input[name="answer"]:checked');
+        const feedback = document.getElementById("feedback");
+
+        if (selected) {
+            const isCorrect = parseInt(selected.value) === questions[currentQuestion].correct;
+            feedback.textContent = isCorrect ? "Correct!" : "Incorrect. Try again.";
+            feedback.style.color = isCorrect ? "green" : "red";
+
+            if (isCorrect) {
+                document.getElementById("next-button").style.display = "inline";
+            }
+        } else {
+            feedback.textContent = "Please select an answer.";
+            feedback.style.color = "orange";
+        }
+    });
+
+    document.getElementById("next-button").addEventListener("click", function() {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+            loadQuestion();
+        } else {
+            document.getElementById("quiz-container").innerHTML = `
+                <h2>Quiz Complete!</h2>
+                <p>Great job! You've finished the ECG quiz.</p>
+            `;
+        }
+    });
+
+    loadQuestion();
+</script>
     <h1>ECG Quiz for Medical Students</h1>
     <div id="quiz-container">
         <img src="ECG-Atrial-Fibrillation.jpg" alt="ECG Image">
