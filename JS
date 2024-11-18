@@ -1,0 +1,10 @@
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const feedback = document.getElementById('feedback');
+    const selected = document.querySelector('input[name="answer"]:checked');
+    if (selected && selected.value === "option1") {
+        feedback.textContent = "Correct! This is a sinus rhythm.";
+    } else {
+        feedback.textContent = "Incorrect. Review the waveform.";
+    }
+});
