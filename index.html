@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECG Quiz</title>
     <style>
+        /* Custom box style for the answers */
+        label {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #f0f0f0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        /* Highlight the box on hover */
+        label:hover {
+            background-color: #f7f7f7;
+            border-color: #888;
+        }
+
+        /* Style for correct/incorrect feedback */
+        .correct {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        .incorrect {
+            background-color: #f44336; /* Red */
+            color: white;
+            border-color: #f44336;
+        }
+
         /* Base styles for the page */
         body {
             font-family: Arial, sans-serif;
@@ -37,45 +69,6 @@
         input[type="radio"] {
             display: none;
         }
-
-        /* Custom box style for the answers */
-        label {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
-            background-color: #f0f0f0;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-        
-        /* Style for correct/incorrect feedback */
-        .correct {
-            background-color: #4CAF50;
-            color: white;
-            border-color: #4CAF50;
-        }
-
-        .incorrect {
-            background-color: #f44336;
-            color: white;
-            border-color: #f44336;
-        }
-
-        /* Change the box color when selected */
-        input[type="radio"]:checked + label {
-            background-color: #4CAF50;
-            color: white;
-            border-color: #4CAF50;
-        }
-
-        /* Hover effect */
-        label:hover {
-            background-color: #f7f7f7;
-            border-color: #888;
-        }
     </style>
 </head>
 <body>
@@ -91,21 +84,21 @@
     <script>
         const questions = [
             {
-                image: "ECG-Atrial-Fibrillation.jpg",
+                image: "https://via.placeholder.com/500x200",
                 question: "What does this ECG show?",
                 options: ["Normal sinus rhythm", "Atrial fibrillation", "Ventricular tachycardia"],
                 correct: 1
             },
             {
-                image: "ECG-12-lead-VF-ventricular-fibrillation.jpg",
+                image: "https://via.placeholder.com/500x200?text=ECG2",
                 question: "What rhythm is shown here?",
                 options: ["Sinus bradycardia", "Atrial flutter", "Ventricular fibrillation"],
                 correct: 2
             },
             {
-                image: "ECG-Left-Bundle-Branch-Block.jpg",
+                image: "https://via.placeholder.com/500x200?text=ECG3",
                 question: "What abnormality is seen on this ECG?",
-                options: ["ST elevation", "QT prolongation", "Left bundle branch block"],
+                options: ["ST elevation", "QT prolongation", "Bundle branch block"],
                 correct: 2
             }
         ];
@@ -126,11 +119,13 @@
                 radioInput.type = "radio";
                 radioInput.name = "answer";
                 radioInput.value = index;
+                radioInput.id = "answer-" + index; // Ensure a unique ID for each input
 
-                // Create the label for the radio button
+                // Create the label for the radio button and link it to the input
                 const label = document.createElement("label");
+                label.setAttribute("for", radioInput.id); // Link label to the radio input
                 label.innerHTML = option;
-                
+
                 // Append the input and label to the form
                 form.appendChild(radioInput);
                 form.appendChild(label);
@@ -148,66 +143,62 @@
         }
 
         // Handle form submission
-        // Handle form submission
-document.getElementById("quiz-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const selected = document.querySelector('input[name="answer"]:checked');
-    const feedback = document.getElementById("feedback");
-    const options = document.querySelectorAll('input[name="answer"]');
+        document.getElementById("quiz-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const selected = document.querySelector('input[name="answer"]:checked');
+            const feedback = document.getElementById("feedback");
+            const options = document.querySelectorAll('input[name="answer"]');
 
-    if (selected) {
-        // Highlight the selected answer
-        const selectedLabel = selected.nextElementSibling;
-        const correctAnswer = questions[currentQuestion].correct;
-        const correctOption = options[correctAnswer].nextElementSibling;
+            if (selected) {
+                // Get the label and the selected value
+                const selectedLabel = selected.nextElementSibling;
+                const correctAnswer = questions[currentQuestion].correct;
+                const correctOption = options[correctAnswer].nextElementSibling;
 
-        // Mark answers as correct or incorrect
-        options.forEach((option, index) => {
-            const label = option.nextElementSibling;
-            if (index === correctAnswer) {
-                label.classList.add('correct');
+                // Mark answers as correct or incorrect
+                options.forEach((option, index) => {
+                    const label = option.nextElementSibling;
+                    if (index === correctAnswer) {
+                        label.classList.add('correct');
+                    } else {
+                        label.classList.remove('correct');
+                    }
+
+                    if (index === parseInt(selected.value)) {
+                        label.classList.add('incorrect');
+                    } else {
+                        label.classList.remove('incorrect');
+                    }
+                });
+
+                // Provide feedback
+                const isCorrect = parseInt(selected.value) === questions[currentQuestion].correct;
+                feedback.textContent = isCorrect ? "Correct!" : "Incorrect. Try again.";
+                feedback.style.color = isCorrect ? "green" : "red";
+
+                // Show the "Next" button if the answer is correct
+                if (isCorrect) {
+                    document.getElementById("next-button").style.display = "inline";
+                }
             } else {
-                label.classList.remove('correct');
-            }
-
-            if (index === parseInt(selected.value)) {
-                label.classList.add('incorrect');
-            } else {
-                label.classList.remove('incorrect');
+                feedback.textContent = "Please select an answer.";
+                feedback.style.color = "orange";
             }
         });
 
-        // Provide feedback
-        const isCorrect = parseInt(selected.value) === questions[currentQuestion].correct;
-        feedback.textContent = isCorrect ? "Correct!" : "Incorrect. Try again.";
-        feedback.style.color = isCorrect ? "green" : "red";
-
-        // Show next button
-        if (isCorrect) {
-            document.getElementById("next-button").style.display = "inline"; // Show "Next" button
-        }
-    } else {
-        feedback.textContent = "Please select an answer.";
-        feedback.style.color = "orange";
-    }
-});
-
-        // Handle "Next" button
+        // Load the next question
         document.getElementById("next-button").addEventListener("click", function() {
             currentQuestion++;
             if (currentQuestion < questions.length) {
-                loadQuestion(); // Load next question
+                loadQuestion();
+                document.getElementById("next-button").style.display = "none";
             } else {
-                document.getElementById("quiz-container").innerHTML = `
-                    <h2>Quiz Complete!</h2>
-                    <p>Great job! You've finished the ECG quiz.</p>
-                `;
+                document.getElementById("quiz-container").innerHTML = "<h2>Quiz Complete!</h2>";
             }
         });
 
-        // Load the first question
+        // Initialize the quiz
         loadQuestion();
     </script>
 </body>
-<button id="next-button" style="display: none;">Next</button>
 </html>
