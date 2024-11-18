@@ -50,4 +50,7 @@ nav {
     .menu li {
         margin: 10px 0;
     }
+    html {
+    scroll-behavior: smooth;
+    } 
 }
