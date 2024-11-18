@@ -1,71 +1,15 @@
-/* Navigation Bar Styles */
-nav {
-    background-color: #333; /* Dark background */
-    padding: 10px 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Ensure menu stays above all content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu li {
-    margin: 0 15px;
-}
-
-.menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.menu a:hover {
-    color: #4CAF50; /* Highlight on hover */
-}
-
-/* Adjust page sections to avoid overlap with the fixed menu */
-#home, #quiz, #resources, #contact {
-    padding: 80px 20px; /* Add padding to avoid menu overlap */
-    margin-top: 40px;
-}
-
-/* Responsive Menu for Small Screens */
-@media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .menu li {
-        margin: 10px 0;
-    }
-    html {
-    scroll-behavior: smooth;
-    } 
-}
-/* General Styling */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     background-color: #f4f4f4;
 }
 
 nav {
     background-color: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 10px;
     text-align: center;
 }
 
@@ -85,23 +29,36 @@ nav ul li a {
     text-decoration: none;
 }
 
-.quiz-container {
-    max-width: 800px;
-    margin: 0 auto;
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+main {
     padding: 20px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+/* Styling for Quiz Page */
+#quiz-container {
+    width: 80%;
+    margin: 0 auto;
     background-color: #fff;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#question {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#question-image img {
-    max-width: 100%;
-    border-radius: 5px;
 }
 
 ul#answers {
@@ -115,10 +72,6 @@ ul#answers li {
     margin: 5px 0;
     cursor: pointer;
     border-radius: 5px;
-}
-
-ul#answers li:hover {
-    background-color: #e0e0e0;
 }
 
 ul#answers li.selected {
@@ -135,21 +88,12 @@ ul#answers li.incorrect {
     color: white;
 }
 
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    margin-top: 10px;
-    background-color: #007bff;
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
     color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:disabled {
-    background-color: #ccc;
-}
-
-button:hover:not(:disabled) {
-    background-color: #0056b3;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
