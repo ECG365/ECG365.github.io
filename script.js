@@ -7,7 +7,7 @@ const quizQuestions = [
     },
     {
         question: "What is the heart rhythm shown in this ECG?",
-        image: "images/VF1.jpg", // Update with actual path
+        image: "VF1.jpg", // Update with actual path
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Fibrillation", "Asystole"],
         correctAnswer: "Ventricular Fibrillation"
     }
