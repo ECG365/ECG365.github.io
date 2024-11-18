@@ -10,6 +10,24 @@ const quizQuestions = [
         image: "VF1.jpg", // Update with actual path
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Fibrillation", "Asystole"],
         correctAnswer: "Ventricular Fibrillation"
+    },
+    {
+        question: "Identify the pattern in the ECG image:",
+        image: "ecg-ventricular-tachycardia.png",
+        options: ["Normal Sinus Rhythm", "Ventricular Tachycardia", "Atrial Fibrillation", "Bradycardia"],
+        correctAnswer: "Normal Sinus Rhythm"
+    },
+    {
+        question: "What does the ECG image indicate?",
+        image: "ecg-bradycardia.png",
+        options: ["Bradycardia", "Normal Sinus Rhythm", "Ventricular Tachycardia", "Atrial Fibrillation"],
+        correctAnswer: "Bradycardia"
+    },
+    {
+        question: "Which rhythm is shown in this ECG?",
+        image: "ecg-asystole.png",
+        options: ["Asystole", "Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Tachycardia"],
+        correctAnswer: "Asystole"
     }
 ];
 
