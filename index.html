@@ -1,47 +1,51 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECG Quiz</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation Menu -->
     <nav>
         <ul class="menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#quiz">ECG Quiz</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="quiz.html">ECG Quiz</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Page Content -->
-    <div id="home">
+    <!-- Header Section -->
+    <header>
         <h1>Welcome to the ECG Quiz!</h1>
-        <p>Test your knowledge of ECG interpretation.</p>
-    </div>
+        <p>Your ultimate resource to master ECG interpretation through interactive quizzes and learning materials.</p>
+    </header>
 
-    <div id="quiz">
-        <div id="quiz-container">
-            <img id="ecg-image" src="" alt="ECG">
-            <p id="question-text"></p>
-            <form id="quiz-form"></form>
-            <div id="feedback" class="feedback"></div>
-            <button id="next-button">Next Question</button>
-        </div>
-    </div>
+    <!-- Main Content -->
+    <main>
+        <section id="about">
+            <h2>About This Website</h2>
+            <p>This website is designed for medical students and healthcare professionals who want to improve their ECG interpretation skills. Explore quizzes, learning resources, and more!</p>
+        </section>
 
-    <div id="resources">
-        <h2>Resources</h2>
-        <p>Explore additional materials to improve your ECG knowledge.</p>
-    </div>
+        <section id="get-started">
+            <h2>Get Started</h2>
+            <p>Ready to test your knowledge? Start with our ECG quiz and track your progress.</p>
+            <a href="quiz.html" class="button">Take the Quiz</a>
+        </section>
 
-    <div id="contact">
-        <h2>Contact Us</h2>
-        <p>Have questions or feedback? Get in touch!</p>
-    </div>
+        <section id="resources-preview">
+            <h2>Resources</h2>
+            <p>Explore our curated resources to deepen your understanding of ECG concepts.</p>
+            <a href="resources.html" class="button">Explore Resources</a>
+        </section>
+    </main>
 
-    <script src="script.js"></script>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 ECG Quiz. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
