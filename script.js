@@ -1,13 +1,13 @@
 const quizQuestions = [
     {
         question: "What is the heart rhythm shown in the image?",
-        image: "images/ecg-normal-sinus-rhythm.png", // Ensure this image exists
+        image: "assets/images/ecg-normal-sinus-rhythm.png", // Update with actual path
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Tachycardia", "Bradycardia"],
         correctAnswer: "Normal Sinus Rhythm"
     },
     {
         question: "What is the heart rhythm shown in this ECG?",
-        image: "images/ecg-atrial-fibrillation.png", // Ensure this image exists
+        image: "assets/images/ecg-atrial-fibrillation.png", // Update with actual path
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Fibrillation", "Asystole"],
         correctAnswer: "Atrial Fibrillation"
     }
@@ -19,6 +19,8 @@ const imageElement = document.getElementById("ecg-image");
 const answersList = document.getElementById("answers");
 const submitButton = document.getElementById("submit-btn");
 const nextButton = document.getElementById("next-btn");
+
+let selectedAnswer = null;
 
 function loadQuestion() {
     const currentQuestion = quizQuestions[currentQuestionIndex];
@@ -37,11 +39,11 @@ function loadQuestion() {
         answersList.appendChild(li);
     });
 
-    submitButton.disabled = false;
+    submitButton.disabled = true;
     nextButton.style.display = "none";
 }
 
-function handleAnswerClick(answerElement, selectedAnswer) {
+function handleAnswerClick(answerElement, selectedAnswerOption) {
     // Mark the selected answer
     const answers = answersList.getElementsByTagName("li");
     for (let answer of answers) {
@@ -49,17 +51,15 @@ function handleAnswerClick(answerElement, selectedAnswer) {
     }
     answerElement.classList.add("selected");
 
+    selectedAnswer = selectedAnswerOption;
+
     // Enable the submit button
     submitButton.disabled = false;
-
-    // Handle answer check on submit
-    submitButton.onclick = () => checkAnswer(selectedAnswer);
 }
 
-function checkAnswer(selectedAnswer) {
+function checkAnswer() {
     const currentQuestion = quizQuestions[currentQuestionIndex];
 
-    // Highlight correct and incorrect answers
     const answers = answersList.getElementsByTagName("li");
 
     for (let answer of answers) {
@@ -90,3 +90,6 @@ nextButton.onclick = () => {
 
 // Load the first question on page load
 window.onload = loadQuestion;
+
+// Attach submit button click event
+submitButton.onclick = checkAnswer;
