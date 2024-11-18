@@ -2,6 +2,7 @@
 const quizQuestions = [
     {
         question: "What is the heart rate for the following rhythm? (Assume regular rhythm)",
+        image: "images/normal-sinus-rhythm.png",  // Add ECG image
         answers: ["50 bpm", "75 bpm", "100 bpm", "150 bpm"],
         correctAnswer: 1, // Index of the correct answer
     },
@@ -37,6 +38,7 @@ const quizQuestions = [
     },
     {
         question: "What type of rhythm does this ECG show?",
+        image: "images/atrial-fibrillation.png",  // Add ECG image
         answers: [
             "Normal sinus rhythm",
             "Atrial fibrillation",
@@ -61,6 +63,16 @@ const nextButton = document.getElementById("next-btn");
 function loadQuestion() {
     const currentQuestion = quizQuestions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
+
+    if (currentQuestion.image) {
+        const img = document.createElement("img");
+        img.src = currentQuestion.image;
+        img.alt = "ECG Image";
+        img.style.maxWidth = "100%";
+        img.style.margin = "20px 0";
+        questionElement.appendChild(img);
+    }
+
     answersElement.innerHTML = ""; // Clear previous answers
     currentQuestion.answers.forEach((answer, index) => {
         const li = document.createElement("li");
@@ -68,6 +80,7 @@ function loadQuestion() {
         li.addEventListener("click", () => selectAnswer(index));
         answersElement.appendChild(li);
     });
+
     submitButton.disabled = true;
     nextButton.style.display = "none";
     selectedAnswerIndex = null;
@@ -114,4 +127,3 @@ nextButton.addEventListener("click", nextQuestion);
 
 // Start Quiz
 loadQuestion();
-
