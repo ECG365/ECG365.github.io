@@ -1,89 +1,43 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+/* Style the answer list */
+ul {
+    list-style-type: none; /* Removes bullets */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
 }
 
-nav {
-    background-color: #333;
-    padding: 10px;
+/* Style individual answer options */
+li {
+    padding: 15px; /* Add padding for better clickability */
+    margin-bottom: 10px; /* Add spacing between options */
+    border: 1px solid #ccc; /* Add a border around each answer */
+    border-radius: 5px; /* Rounded corners for modern look */
+    cursor: pointer; /* Show pointer cursor on hover */
+    text-align: center; /* Center align the text */
+    background-color: #f9f9f9; /* Light background color */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
+/* Hover effect for answers */
+li:hover {
+    background-color: #e6f7ff; /* Light blue hover effect */
 }
 
-nav ul li {
-    margin: 0 15px;
+/* Highlight the selected answer */
+li.selected {
+    background-color: #f0f8ff; /* Light blue for selected */
+    border-color: #007bff; /* Optional: Change border color to indicate selection */
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+/* Correct answer styling */
+li.correct {
+    background-color: #c8e6c9; /* Green for correct answers */
+    border-color: #2e7d32; /* Darker green border for correct answers */
+    color: #2e7d32; /* Optional: Dark green text color */
 }
 
-nav ul li a.active {
-    border-bottom: 2px solid yellow;
-}
-
-main {
-    text-align: center;
-    margin-top: 50px;
-}
-
-#quiz-container {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-#answers li {
-    padding: 15px;
-    background-color: #f0f0f0;
-    margin: 10px 0;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-#answers li:hover {
-    background-color: #e0e0e0;
-}
-
-#answers li.selected {
-    background-color: #c0e0c0;
-}
-
-.correct {
-    background-color: #4CAF50; /* Green */
-    color: white;
-}
-
-.incorrect {
-    background-color: #f44336; /* Red */
-    color: white;
-}
-
-button {
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:disabled {
-    background-color: #aaa;
-}
-
-button:hover {
-    background-color: #45a049;
+/* Incorrect answer styling */
+li.incorrect {
+    background-color: #ffcdd2; /* Red for incorrect answers */
+    border-color: #c62828; /* Darker red border for incorrect answers */
+    color: #c62828; /* Optional: Dark red text color */
 }
