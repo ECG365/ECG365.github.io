@@ -1,3 +1,4 @@
+/* General body styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,6 +6,7 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Navigation Bar */
 nav {
     background-color: #333;
     padding: 10px;
@@ -38,6 +40,7 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
+/* Page Content */
 h1, h2 {
     text-align: center;
     color: #333;
@@ -80,6 +83,7 @@ h1, h2 {
     color: white;
 }
 
+/* Buttons */
 button {
     padding: 10px 20px;
     margin-top: 20px;
@@ -98,18 +102,17 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Modal (Hidden by default) */
+/* Modal for full-screen images */
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
-    z-index: 1; 
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.9); 
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
     padding-top: 60px;
 }
 
@@ -139,7 +142,7 @@ button:hover {
     cursor: pointer;
 }
 
-/* Styles for the quiz images */
+/* Styles for images within the quiz */
 img {
     max-width: 100%;
     height: auto;
