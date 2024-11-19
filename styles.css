@@ -1,26 +1,29 @@
 /* Style the navigation bar */
 nav {
     background-color: #333; /* Dark background color */
-    overflow: hidden; /* Prevent overflow */
+    overflow: hidden; /* Prevent content overflow */
     padding: 10px 0;
-    position: sticky; /* Keeps the navbar at the top when scrolling */
+    position: sticky; /* Keeps the navbar fixed at the top */
     top: 0; /* Align to the top of the page */
-    z-index: 10; /* Ensure the navbar stays above other elements */
+    z-index: 10; /* Ensures it stays above other elements */
 }
 
-/* Navigation list */
+/* Navigation list - always visible */
 nav ul {
     list-style-type: none; /* Remove bullets */
     margin: 0;
     padding: 0;
-    display: flex; /* Arrange links horizontally */
-    justify-content: center; /* Center the links */
-    align-items: center; /* Vertically align links */
+    display: flex; /* Arrange links in a row */
+    justify-content: center; /* Center the links horizontally */
+    align-items: center; /* Align links vertically */
+    visibility: visible; /* Ensure the links are visible */
+    opacity: 1; /* Ensure full visibility */
 }
 
 /* Navigation list items */
 nav ul li {
     margin: 0 15px; /* Space between links */
+    position: static; /* Prevent dropdown behavior */
 }
 
 /* Navigation links */
@@ -28,16 +31,22 @@ nav ul li a {
     text-decoration: none; /* Remove underline */
     color: white; /* White text color */
     font-size: 18px; /* Font size */
-    padding: 10px 20px; /* Add padding for clickability */
-    border-radius: 5px; /* Rounded corners for aesthetics */
-    background-color: #444; /* Default background color for links */
-    transition: background-color 0.3s ease; /* Smooth transition for hover */
+    padding: 10px 20px; /* Add padding for better clickability */
+    background-color: #444; /* Background color for each link */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    display: inline-block; /* Ensure links behave like buttons */
+}
+
+/* Hover effect for links */
+nav ul li a:hover {
+    background-color: #575757; /* Slightly lighter gray */
 }
 
 /* Active link styling (optional) */
 nav ul li a.active {
-    background-color: #007bff; /* Blue background for the active page */
-    color: white; /* White text color for the active link */
+    background-color: #007bff; /* Highlight active page in blue */
+    color: white; /* Keep text white */
 }
 
 /* Style the answer list */
