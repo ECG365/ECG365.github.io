@@ -1,123 +1,80 @@
-/* Style the navigation bar */
-nav {
-    background-color: #333; /* Dark background color */
-    overflow: hidden; /* Prevent overflow */
-    overflow: hidden; /* Prevent content overflow */
-    padding: 10px 0;
-    position: sticky; /* Keeps the navbar at the top when scrolling */
-    position: sticky; /* Keeps the navbar fixed at the top */
-    top: 0; /* Align to the top of the page */
-    z-index: 10; /* Ensure the navbar stays above other elements */
-    z-index: 10; /* Ensures it stays above other elements */
-}
-
-/* Navigation list */
-/* Navigation list - always visible */
-nav ul {
-    list-style-type: none; /* Remove bullets */
+/* Reset some margins and paddings for body */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex; /* Arrange links horizontally */
-    justify-content: center; /* Center the links */
-    align-items: center; /* Vertically align links */
-    display: flex; /* Arrange links in a row */
-    justify-content: center; /* Center the links horizontally */
-    align-items: center; /* Align links vertically */
-    visibility: visible; /* Ensure the links are visible */
-    opacity: 1; /* Ensure full visibility */
+    background-color: #f4f4f4;
 }
 
-/* Navigation list items */
+/* Navbar */
+nav {
+    background-color: #333;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the navigation links */
+}
+
 nav ul li {
-    margin: 0 15px; /* Space between links */
-    position: static; /* Prevent dropdown behavior */
+    margin: 0 15px;
 }
 
-/* Navigation links */
 nav ul li a {
-    text-decoration: none; /* Remove underline */
-    color: white; /* White text color */
-    font-size: 18px; /* Font size */
-    padding: 10px 20px; /* Add padding for clickability */
-    border-radius: 5px; /* Rounded corners for aesthetics */
-    background-color: #444; /* Default background color for links */
-    transition: background-color 0.3s ease; /* Smooth transition for hover */
-    padding: 10px 20px; /* Add padding for better clickability */
-    background-color: #444; /* Background color for each link */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    display: inline-block; /* Ensure links behave like buttons */
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
 }
-/* Hover effect for links */
+
 nav ul li a:hover {
-    background-color: #575757; /* Slightly lighter gray */
+    background-color: #575757;
+    border-radius: 5px;
 }
 
-/* Active link styling (optional) */
-nav ul li a.active {
-    background-color: #007bff; /* Blue background for the active page */
-    color: white; /* White text color for the active link */
-    background-color: #007bff; /* Highlight active page in blue */
-    color: white; /* Keep text white */
+/* Main content area */
+#quiz-container {
+    max-width: 800px;
+    margin: 120px auto; /* Space for navbar + some margin */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the answer list */
-ul {
-    list-style-type: none; /* Removes bullets */
-    padding: 0; /* Removes default padding */
-    margin: 0; /* Removes default margin */
-}
-
-/* Style individual answer options */
-li {
-    padding: 15px; /* Add padding for better clickability */
-    margin-bottom: 10px; /* Add spacing between options */
-    padding-bottom: 100px; /* Add space at the bottom for fixed buttons */
-    border: 1px solid #ccc; /* Add a border around each answer */
-    border-radius: 5px; /* Rounded corners for modern look */
-    cursor: pointer; /* Show pointer cursor on hover */
-    text-align: center; /* Center align the text */
-    background-color: #f9f9f9; /* Light background color */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
-}
-
-/* Hover effect for answers */
-li:hover {
-    background-color: #e6f7ff; /* Light blue hover effect */
-}
-
-/* Highlight the selected answer */
-li.selected {
-    background-color: #f0f8ff; /* Light blue for selected */
-    border-color: #007bff; /* Optional: Change border color to indicate selection */
-}
-
-/* Correct answer styling */
-li.correct {
-    background-color: #c8e6c9; /* Green for correct answers */
-    border-color: #2e7d32; /* Darker green border for correct answers */
-    color: #2e7d32; /* Optional: Dark green text color */
-}
-
-/* Incorrect answer styling */
-li.incorrect {
-    background-color: #ffcdd2; /* Red for incorrect answers */
-    border-color: #c62828; /* Darker red border for incorrect answers */
-    color: #c62828; /* Optional: Dark red text color */
-}
-img:empty::before {
-    content: none;
-}
 /* Answer List */
 #answers {
     list-style: none;
     padding: 0;
 }
 
-/* Buttons */
+#answers li {
+    padding: 10px;
+    background-color: #f1f1f1;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Buttons container */
+#button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px; /* Space above buttons */
+}
+
+/* Button styling */
 button {
     padding: 10px 20px;
-    margin-top: 20px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -133,13 +90,30 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Add some space for the buttons */
-#button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px; /* Space above the buttons */
+/* Styles for correct/incorrect answers */
+#answers li.selected {
+    background-color: #cce5ff;
 }
 
-#button-container button {
-    margin: 0 10px; /* Space between buttons */
+#answers li.correct {
+    background-color: #28a745; /* Green for correct answers */
+    color: white;
+}
+
+#answers li.incorrect {
+    background-color: #dc3545; /* Red for incorrect answers */
+    color: white;
+}
+
+/* Image and modal styles */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    display: block;
+    cursor: pointer; /* Makes image clickable */
+}
+
+img:active {
+    opacity: 0.8; /* Slight effect when clicked */
 }
