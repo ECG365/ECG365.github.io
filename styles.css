@@ -1,24 +1,29 @@
 /* Style the navigation bar */
 nav {
     background-color: #333; /* Dark background color */
-    overflow: hidden; /* Ensure content stays inside the nav */
+    overflow: hidden; /* Ensure the content stays inside the nav bar */
     padding: 10px 0;
+    position: sticky; /* Keeps the navbar at the top when scrolling */
+    top: 0; /* Align to the top of the page */
+    z-index: 10; /* Ensures it stays on top of other elements */
 }
 
-/* Style the navigation list */
+/* Navigation list */
 nav ul {
     list-style-type: none; /* Remove bullets */
     margin: 0;
     padding: 0;
-    display: flex; /* Arrange items horizontally */
-    justify-content: center; /* Center the items */
+    display: flex; /* Arrange list items in a row */
+    justify-content: center; /* Center the links in the navigation bar */
+    align-items: center; /* Vertically align the items */
 }
 
-/* Style individual navigation links */
+/* Navigation list items */
 nav ul li {
-    margin: 0 15px; /* Add spacing between links */
+    margin: 0 15px; /* Space between links */
 }
 
+/* Navigation links */
 nav ul li a {
     text-decoration: none; /* Remove underline from links */
     color: white; /* White text color */
@@ -36,6 +41,7 @@ nav ul li a:hover {
 /* Active link styling (optional) */
 nav ul li a.active {
     background-color: #007bff; /* Blue background for the active page */
+    color: white; /* Keep text white */
 }
 
 /* Style the answer list */
