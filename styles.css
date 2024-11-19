@@ -113,7 +113,7 @@ img:empty::before {
     justify-content: center;     /* Center buttons horizontally */
     align-items: center;         /* Align buttons vertically */
     position: fixed;             /* Fix at the bottom of the viewport */
-    bottom: 20px;                /* Space from the bottom edge */
+    bottom: 15px;                /* Space from the bottom edge */
     width: 100%;                 /* Ensure container spans the page width */
     background-color: #f4f4f4;   /* Optional: Background color for better visibility */
     padding: 10px 0;             /* Optional: Padding for better spacing */
