@@ -34,19 +34,10 @@ nav ul li a {
     transition: background-color 0.3s ease; /* Smooth transition for hover */
 }
 
-/* Hover effect for navigation links */
-nav ul li a:hover {
-    background-color: #575757; /* Slightly lighter gray on hover */
-}
-
 /* Active link styling (optional) */
 nav ul li a.active {
     background-color: #007bff; /* Blue background for the active page */
     color: white; /* White text color for the active link */
-}
-/* Remove hover effect */
-nav ul li a:hover {
-    /* No styles here */
 }
 
 /* Style the answer list */
