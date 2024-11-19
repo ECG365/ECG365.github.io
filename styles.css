@@ -72,6 +72,7 @@ ul {
 li {
     padding: 15px; /* Add padding for better clickability */
     margin-bottom: 10px; /* Add spacing between options */
+    padding-bottom: 100px; /* Add space at the bottom for fixed buttons */
     border: 1px solid #ccc; /* Add a border around each answer */
     border-radius: 5px; /* Rounded corners for modern look */
     cursor: pointer; /* Show pointer cursor on hover */
