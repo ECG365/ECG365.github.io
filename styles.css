@@ -107,32 +107,31 @@ li.incorrect {
 img:empty::before {
     content: none;
 }
-/* Container for buttons */
+/* Fixed Button Container */
 #button-container {
-    display: flex;               /* Arrange buttons in a row */
-    justify-content: center;     /* Center buttons horizontally */
-    align-items: center;         /* Align buttons vertically */
-    position: fixed;             /* Fix at the bottom of the viewport */
-    bottom: 15px;                /* Space from the bottom edge */
-    width: 100%;                 /* Ensure container spans the page width */
-    background-color: #f4f4f4;   /* Optional: Background color for better visibility */
-    padding: 10px 0;             /* Optional: Padding for better spacing */
-    z-index: 1000;               /* Keep above other elements */
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f4f4f4; /* Match the background of the page */
+    padding: 15px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-/* Styling for buttons */
 #button-container button {
-    margin: 0 10px;              /* Add spacing between buttons */
+    margin: 0 10px;
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;             /* Larger font for better usability */
+    font-size: 16px;
 }
 
-/* Button hover and disabled states */
 #button-container button:hover {
     background-color: #0056b3;
 }
