@@ -62,3 +62,45 @@ nav ul li a.active {
 }
 
 /* Style the answer list */
+ul {
+    list-style-type: none; /* Removes bullets */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+}
+
+/* Style individual answer options */
+li {
+    padding: 15px; /* Add padding for better clickability */
+    margin-bottom: 10px; /* Add spacing between options */
+    border: 1px solid #ccc; /* Add a border around each answer */
+    border-radius: 5px; /* Rounded corners for modern look */
+    cursor: pointer; /* Show pointer cursor on hover */
+    text-align: center; /* Center align the text */
+    background-color: #f9f9f9; /* Light background color */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for answers */
+li:hover {
+    background-color: #e6f7ff; /* Light blue hover effect */
+}
+
+/* Highlight the selected answer */
+li.selected {
+    background-color: #f0f8ff; /* Light blue for selected */
+    border-color: #007bff; /* Optional: Change border color to indicate selection */
+}
+
+/* Correct answer styling */
+li.correct {
+    background-color: #c8e6c9; /* Green for correct answers */
+    border-color: #2e7d32; /* Darker green border for correct answers */
+    color: #2e7d32; /* Optional: Dark green text color */
+}
+
+/* Incorrect answer styling */
+li.incorrect {
+    background-color: #ffcdd2; /* Red for incorrect answers */
+    border-color: #c62828; /* Darker red border for incorrect answers */
+    color: #c62828; /* Optional: Dark red text color */
+}
