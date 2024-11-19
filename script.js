@@ -13,21 +13,21 @@ const quizQuestions = [
     },
     {
         question: "Identify the pattern in the ECG image:",
-        image: "ecg-ventricular-tachycardia.png",
+        image: "vtach1.jpg",
         options: ["Normal Sinus Rhythm", "Ventricular Tachycardia", "Atrial Fibrillation", "Bradycardia"],
-        correctAnswer: "Normal Sinus Rhythm"
+        correctAnswer: "Ventricular Tachycardia"
     },
     {
         question: "What does the ECG image indicate?",
-        image: "ecg-bradycardia.png",
+        image: "Sbrady1.jpg",
         options: ["Bradycardia", "Normal Sinus Rhythm", "Ventricular Tachycardia", "Atrial Fibrillation"],
         correctAnswer: "Bradycardia"
     },
     {
-        question: "Which rhythm is shown in this ECG?",
-        image: "ecg-asystole.png",
-        options: ["Asystole", "Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Tachycardia"],
-        correctAnswer: "Asystole"
+        question: "What can be identified in this ECG?",
+        image: "peri1.jpg",
+        options: ["Asystole", "Normal Sinus Rhythm", "Pericarditis", "Ventricular Tachycardia"],
+        correctAnswer: "Pericarditis"
     }
 ];
 
