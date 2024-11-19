@@ -43,9 +43,9 @@ let selectedAnswer = null;
 function loadQuestion() {
     const currentQuestion = quizQuestions[currentQuestionIndex];
 
-    questionElement.textContent = currentQuestion.question;
-    imageElement.src = currentQuestion.image;
-
+   questionElement.textContent = currentQuestion.question;
+    imageElement.src = currentQuestion.image; // Set the image source
+    imageElement.alt = ""; // Clear alt text to prevent fallback
     // Clear previous answers
     answersList.innerHTML = '';
 
