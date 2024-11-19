@@ -1,97 +1,3 @@
-/* Style the navigation bar */
-nav {
-    background-color: #333; /* Dark background color */
-    overflow: hidden; /* Prevent content overflow */
-    padding: 10px 0;
-    position: sticky; /* Keeps the navbar fixed at the top */
-    top: 0; /* Align to the top of the page */
-    z-index: 10; /* Ensures it stays above other elements */
-}
-
-/* Navigation list - always visible */
-nav ul {
-    list-style-type: none; /* Remove bullets */
-    margin: 0;
-    padding: 0;
-    display: flex; /* Arrange links in a row */
-    justify-content: center; /* Center the links horizontally */
-    align-items: center; /* Align links vertically */
-    visibility: visible; /* Ensure the links are visible */
-    opacity: 1; /* Ensure full visibility */
-}
-
-/* Navigation list items */
-nav ul li {
-    margin: 0 15px; /* Space between links */
-    position: static; /* Prevent dropdown behavior */
-}
-
-/* Navigation links */
-nav ul li a {
-    text-decoration: none; /* Remove underline */
-    color: white; /* White text color */
-    font-size: 18px; /* Font size */
-    padding: 10px 20px; /* Add padding for better clickability */
-    background-color: #444; /* Background color for each link */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    display: inline-block; /* Ensure links behave like buttons */
-}
-
-/* Hover effect for links */
-nav ul li a:hover {
-    background-color: #575757; /* Slightly lighter gray */
-}
-
-/* Active link styling (optional) */
-nav ul li a.active {
-    background-color: #007bff; /* Highlight active page in blue */
-    color: white; /* Keep text white */
-}
-
-/* Style the answer list */
-ul {
-    list-style-type: none; /* Removes bullets */
-    padding: 0; /* Removes default padding */
-    margin: 0; /* Removes default margin */
-}
-
-/* Style individual answer options */
-li {
-    padding: 15px; /* Add padding for better clickability */
-    margin-bottom: 10px; /* Add spacing between options */
-    border: 1px solid #ccc; /* Add a border around each answer */
-    border-radius: 5px; /* Rounded corners for modern look */
-    cursor: pointer; /* Show pointer cursor on hover */
-    text-align: center; /* Center align the text */
-    background-color: #f9f9f9; /* Light background color */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
-}
-
-/* Hover effect for answers */
-li:hover {
-    background-color: #e6f7ff; /* Light blue hover effect */
-}
-
-/* Highlight the selected answer */
-li.selected {
-    background-color: #f0f8ff; /* Light blue for selected */
-    border-color: #007bff; /* Optional: Change border color to indicate selection */
-}
-
-/* Correct answer styling */
-li.correct {
-    background-color: #c8e6c9; /* Green for correct answers */
-    border-color: #2e7d32; /* Darker green border for correct answers */
-    color: #2e7d32; /* Optional: Dark green text color */
-}
-
-/* Incorrect answer styling */
-li.incorrect {
-    background-color: #ffcdd2; /* Red for incorrect answers */
-    border-color: #c62828; /* Darker red border for incorrect answers */
-    color: #c62828; /* Optional: Dark red text color */
-}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -99,27 +5,43 @@ body {
     background-color: #f4f4f4;
 }
 
+nav {
+    background-color: #333;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: #333;
     display: flex;
+    justify-content: center; /* Center the navigation links */
 }
 
 nav ul li {
-    margin: 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     padding: 10px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
 }
 
 h1, h2 {
     text-align: center;
     color: #333;
+    margin-top: 60px; /* Add margin to avoid overlap with fixed navbar */
 }
 
 #quiz-container {
@@ -215,4 +137,17 @@ button:hover {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Styles for the quiz images */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    display: block;
+    cursor: pointer; /* Makes image clickable */
+}
+
+img:active {
+    opacity: 0.8; /* Slight effect when clicked */
 }
