@@ -1,36 +1,31 @@
 const quizQuestions = [
     {
         question: "What is the heart rhythm shown in the image?",
-        image: "AF1.jpg", // Update with actual path
-        image: "images/AF1.jpg", // Update with actual path
+        image: "images/AF1.jpg", // Correct path
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Tachycardia", "Bradycardia"],
         correctAnswer: "Atrial Fibrillation"
     },
     {
         question: "What is the heart rhythm shown in this ECG?",
-        image: "VF1.jpg", // Update with actual path
-        image: "images/VF1.jpg", // Update with actual path
+        image: "images/VF1.jpg", // Correct path
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Fibrillation", "Asystole"],
         correctAnswer: "Ventricular Fibrillation"
     },
     {
         question: "Identify the pattern in the ECG image:",
-        image: "vtach1.jpg",
-        image: "images/vtach1.jpg",
+        image: "images/vtach1.jpg", // Correct path
         options: ["Normal Sinus Rhythm", "Ventricular Tachycardia", "Atrial Fibrillation", "Bradycardia"],
         correctAnswer: "Ventricular Tachycardia"
     },
     {
         question: "What does the ECG image indicate?",
-        image: "Sbrady1.jpg",
-        image: "images/Sbrady1.jpg",
+        image: "images/Sbrady1.jpg", // Correct path
         options: ["Bradycardia", "Normal Sinus Rhythm", "Ventricular Tachycardia", "Atrial Fibrillation"],
         correctAnswer: "Bradycardia"
     },
     {
         question: "What can be identified in this ECG?",
-        image: "peri1.jpg",
-        image: "images/peri1.jpg",
+        image: "images/peri1.jpg", // Correct path
         options: ["Asystole", "Normal Sinus Rhythm", "Pericarditis", "Ventricular Tachycardia"],
         correctAnswer: "Pericarditis"
     }
