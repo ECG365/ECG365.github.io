@@ -1,13 +1,13 @@
 const quizQuestions = [
     {
         question: "What is the heart rhythm shown in the image?",
-        image: "images/AF1.jpg", // Update with actual path
+        image: "images/AF1.jpg",
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Tachycardia", "Bradycardia"],
         correctAnswer: "Atrial Fibrillation"
     },
     {
         question: "What is the heart rhythm shown in this ECG?",
-        image: "images/VF1.jpg", // Update with actual path
+        image: "images/VF1.jpg",
         options: ["Normal Sinus Rhythm", "Atrial Fibrillation", "Ventricular Fibrillation", "Asystole"],
         correctAnswer: "Ventricular Fibrillation"
     },
@@ -37,6 +37,8 @@ const imageElement = document.getElementById("ecg-image");
 const answersList = document.getElementById("answers");
 const submitButton = document.getElementById("submit-btn");
 const nextButton = document.getElementById("next-btn");
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modal-image");
 
 let selectedAnswer = null;
 
@@ -111,3 +113,14 @@ window.onload = loadQuestion;
 
 // Attach submit button click event
 submitButton.onclick = checkAnswer;
+
+// Open the image in full-screen modal
+function openModal() {
+    modal.style.display = "block";
+    modalImage.src = imageElement.src; // Set the modal image source to the clicked image
+}
+
+// Close the full-screen modal
+function closeModal() {
+    modal.style.display = "none";
+}
