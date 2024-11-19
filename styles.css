@@ -104,3 +104,6 @@ li.incorrect {
     border-color: #c62828; /* Darker red border for incorrect answers */
     color: #c62828; /* Optional: Dark red text color */
 }
+img:empty::before {
+    content: none;
+}
