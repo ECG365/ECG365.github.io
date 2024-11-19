@@ -108,36 +108,38 @@ li.incorrect {
 img:empty::before {
     content: none;
 }
-/* Fixed Button Container */
-#button-container {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f4f4f4; /* Match the background of the page */
-    padding: 15px 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+/* Answer List */
+#answers {
+    list-style: none;
+    padding: 0;
 }
 
-#button-container button {
-    margin: 0 10px;
+/* Buttons */
+button {
     padding: 10px 20px;
+    margin-top: 20px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
 }
 
-#button-container button:hover {
+button:disabled {
+    background-color: #ccc;
+}
+
+button:hover {
     background-color: #0056b3;
 }
 
-#button-container button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+/* Add some space for the buttons */
+#button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* Space above the buttons */
+}
+
+#button-container button {
+    margin: 0 10px; /* Space between buttons */
 }
