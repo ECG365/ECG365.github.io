@@ -132,3 +132,8 @@ submitButton.onclick = checkAnswer;
 // Answer score count
 let correctAnswersCount = 0;
 let incorrectAnswersCount = 0;
+
+function updateScoreDisplay() {
+    document.getElementById("correct-score").textContent = correctAnswersCount;
+    document.getElementById("incorrect-score").textContent = incorrectAnswersCount;
+}
