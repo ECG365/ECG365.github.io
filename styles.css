@@ -1,121 +1,61 @@
-/* Body Styles */
+/* General Body and Container Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    line-height: 1.6;
 }
 
-/* Navbar Styling */
-nav {
-    background-color: #333;
-    padding: 10px;
-    padding: 10px 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-@@ -33,6 +34,7 @@
-    text-decoration: none;
-    padding: 10px;
-    display: inline-block;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-nav ul li a:hover {
-@@ -43,7 +45,7 @@
-/* Quiz Container Styling */
 #quiz-container {
-    max-width: 800px;
-    margin: 120px auto; /* Added margin-top to prevent navbar overlap */
-    margin: 120px auto 20px; /* Adjust margin-top for navbar overlap */
+    display: flex; /* Flexbox for side-by-side layout */
+    max-width: 1000px;
+    margin: 120px auto;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
-@@ -58,11 +60,16 @@
-}
-
-#answers li {
-    padding: 10px;
-    padding: 15px;
-    background-color: #f1f1f1;
-    margin: 5px 0;
-    margin: 8px 0;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-#answers li:hover {
-    background-color: #e9ecef;
-}
-
-/* Buttons Styling */
-@@ -74,19 +81,21 @@
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-button:hover {
-button:hover:not(:disabled) {
-    background-color: #0056b3;
-}
-
-/* Correct and Incorrect Answers */
-#answers li.selected {
-    background-color: #cce5ff;
-    background-color: #cce5ff; /* Light blue for selected answers */
-}
-
-#answers li.correct {
-@@ -99,44 +108,56 @@
-    color: white;
-}
-
-/* Image and Modal Styles */
-/* Image Styling */
-img {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
-    display: block;
-    cursor: pointer;
-}
-
-img:active {
-    opacity: 0.8;
-}
-/* Score Container */
-#score-container {
-    margin: 20px auto;
-    text-align: center;
-    background-color: #f9f9f9;
-    padding: 10px;
-    padding: 15px;
-    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
+    gap: 20px; /* Space between the content and score panel */
+}
+
+/* Quiz Content Section */
+#quiz-content {
+    flex: 3; /* Takes up more space */
+}
+
+/* Score Panel Section */
+#score-panel {
+    flex: 1; /* Takes up smaller space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between score and progress bar */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Score Styling */
+#score-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
     font-size: 18px;
     font-weight: bold;
 }
 
 #score-container p {
     margin: 5px 0;
-    margin: 10px 0;
-    color: #333;
 }
-/* Progress Bar */
+
+/* Progress Bar Styling */
 #progress-bar-container {
-    width: 80%;
+    width: 100%;
     background-color: #e0e0e0;
     border-radius: 5px;
-    margin: 20px auto;
     height: 20px;
     overflow: hidden;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -123,17 +63,51 @@ img:active {
 
 #progress-bar {
     height: 100%;
-    background-color: #28a745; /* Green */
-    width: 0%;
-    width: 0%; /* Dynamically updated */
+    background-color: #28a745;
+    width: 0%; /* Updated dynamically */
     border-radius: 5px;
     transition: width 0.3s ease-in-out;
 }
-/* Button Container */
-#button-container {
-    display: flex;
-    justify-content: space-around; /* Spread buttons evenly */
-    flex-wrap: wrap; /* Ensure responsiveness */
-    gap: 15px;
-    margin-top: 20px;
+
+/* Answer List Styling */
+#answers {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#answers li {
+    padding: 10px;
+    background-color: #f1f1f1;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#answers li.correct {
+    background-color: #28a745;
+    color: white;
+}
+
+#answers li.incorrect {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
