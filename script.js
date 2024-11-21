@@ -92,7 +92,24 @@ function checkAnswer() {
     for (let answer of answers) {
         answer.onclick = null;
     }
+    // Update score
+        if (selectedAnswer === currentQuestion.correctAnswer) {
+        correctAnswersCount++;
+    }     else {
+            incorrectAnswersCount++;
+    }
 
+    // Update the score display
+    updateScoreDisplay();
+
+    // Disable all answers after submission
+    for (let answer of answers) {
+        answer.onclick = null;
+    }
+
+    submitButton.disabled = true;
+    nextButton.style.display = "inline-block";
+}
     submitButton.disabled = true;
     nextButton.style.display = "inline-block";
 }
