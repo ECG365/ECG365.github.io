@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECG Quiz</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
@@ -22,29 +23,33 @@
 
         <!-- Quiz Container -->
         <div id="quiz-container">
-            <!-- Quiz Content Section -->
-            <div id="quiz-content">
-                <h2 id="question">Question Text</h2>
-                <img id="ecg-image" src="" alt="ECG Image">
-                <ul id="answers">
-                    <!-- Answer options will be populated here -->
-                </ul>
-                <div id="button-container">
-                    <button id="submit-btn" disabled>Submit Answer</button>
-                    <button id="next-btn" style="display: none;">Next Question</button>
-                </div>
-            </div>
+            <!-- Question -->
+            <h2 id="question">Question Text</h2>
 
-            <!-- Score and Progress Section -->
-            <div id="score-panel">
-                <div id="score-container">
-                    <p>Correct Answers: <span id="correct-score">0</span></p>
-                    <p>Incorrect Answers: <span id="incorrect-score">0</span></p>
-                </div>
-                <div id="progress-bar-container">
-                    <div id="progress-bar"></div>
-                </div>
+            <!-- ECG Image -->
+            <img id="ecg-image" src="" alt="ECG Image">
+
+            <!-- Answer Options -->
+            <ul id="answers">
+                <!-- Answer options will be dynamically populated -->
+            </ul>
+
+            <!-- Submit and Next Question buttons -->
+            <div id="button-container">
+                <button id="submit-btn" disabled>Submit Answer</button>
+                <button id="next-btn" style="display: none;">Next Question</button>
             </div>
+        </div>
+
+        <!-- Score Container -->
+        <div id="score-container">
+            <p>Correct Answers: <span id="correct-score">0</span></p>
+            <p>Incorrect Answers: <span id="incorrect-score">0</span></p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
         </div>
     </main>
 
