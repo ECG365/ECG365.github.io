@@ -40,6 +40,12 @@ const nextButton = document.getElementById("next-btn");
 
 let selectedAnswer = null;
 
+function updateProgressBar() {
+    const totalQuestions = quizQuestions.length;
+    const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+    document.getElementById("progress-bar").style.width = progress + "%";
+}
+
 function loadQuestion() {
     const currentQuestion = quizQuestions[currentQuestionIndex];
 
@@ -59,6 +65,9 @@ function loadQuestion() {
 
     submitButton.disabled = true;
     nextButton.style.display = "none";
+
+    // Update the progress bar
+    updateProgressBar();
 }
 
 function handleAnswerClick(answerElement, selectedAnswerOption) {
