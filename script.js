@@ -111,3 +111,7 @@ window.onload = loadQuestion;
 
 // Attach submit button click event
 submitButton.onclick = checkAnswer;
+
+// Answer score count
+let correctAnswersCount = 0;
+let incorrectAnswersCount = 0;
